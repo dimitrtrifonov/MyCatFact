@@ -4,7 +4,7 @@ import retrofit2.http.GET
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-interface MyCatFactApiService {
+interface CatFactApiService {
     @GET("breeds")
     suspend fun getCatBreeds(): CatBreedsResponse
 }
@@ -13,11 +13,11 @@ interface MyCatFactApiService {
 object RetrofitInstance {
     private const val BASE_URL = "https://catfact.ninja/"
 
-    val api: MyCatFactApiService by lazy {
+    val api: CatFactApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(MyCatFactApiService::class.java)
+            .create(CatFactApiService::class.java)
     }
 }
