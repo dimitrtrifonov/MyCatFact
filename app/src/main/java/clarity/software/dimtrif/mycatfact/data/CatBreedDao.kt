@@ -13,7 +13,4 @@ interface CatBreedDao {
 
     @Query("SELECT * FROM cat_breeds")
     suspend fun getAllBreeds(): List<CatBreed>
-
-    @Query("DELETE FROM cat_breeds")
-    suspend fun deleteAll()
 }
