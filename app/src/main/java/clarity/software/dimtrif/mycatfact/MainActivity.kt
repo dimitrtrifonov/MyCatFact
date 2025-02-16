@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,8 +18,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -26,7 +29,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             CatBreedsScreen()
         }
@@ -36,26 +38,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CatBreedsScreen(catViewModel: CatBreedsViewModel = viewModel()) {
-
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        Text("Cat Breeds", style = MaterialTheme.typography.labelMedium)
-
+        Text("Cat Breeds", style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
         when {
             catViewModel.isLoading.collectAsState().value -> CircularProgressIndicator(
                 modifier = Modifier.padding(
                     16.dp
                 )
             )
-
             catViewModel.errorMessage.collectAsState().value != null -> Text(
                 text = catViewModel.errorMessage.collectAsState().value!!,
                 color = MaterialTheme.colorScheme.error
             )
-
             else -> {
                 LazyColumn {
                     items(catViewModel.catBreeds.value) { breed ->
