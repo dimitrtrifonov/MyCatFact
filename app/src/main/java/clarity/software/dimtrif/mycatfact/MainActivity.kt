@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,6 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import clarity.software.dimtrif.mycatfact.data.CatBreed
 
 
 class MainActivity : ComponentActivity() {
@@ -39,10 +39,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CatBreedsScreen(catViewModel: CatBreedsViewModel = viewModel()) {
     Column(
-        modifier = Modifier
-            .padding(16.dp),
+        modifier = Modifier.padding(16.dp).fillMaxWidth().fillMaxHeight(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
     ) {
         Text("Cat Breeds", style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
         when {

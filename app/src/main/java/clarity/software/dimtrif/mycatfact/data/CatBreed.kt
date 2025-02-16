@@ -1,4 +1,4 @@
-package clarity.software.dimtrif.mycatfact
+package clarity.software.dimtrif.mycatfact.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

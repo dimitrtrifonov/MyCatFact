@@ -1,4 +1,4 @@
-package clarity.software.dimtrif.mycatfact
+package clarity.software.dimtrif.mycatfact.data
 
 import androidx.room.Dao
 import androidx.room.Insert

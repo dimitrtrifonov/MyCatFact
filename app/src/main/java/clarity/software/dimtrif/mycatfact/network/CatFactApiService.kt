@@ -1,5 +1,6 @@
-package clarity.software.dimtrif.mycatfact
+package clarity.software.dimtrif.mycatfact.network
 
+import clarity.software.dimtrif.mycatfact.data.CatBreedsResponse
 import retrofit2.http.GET
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

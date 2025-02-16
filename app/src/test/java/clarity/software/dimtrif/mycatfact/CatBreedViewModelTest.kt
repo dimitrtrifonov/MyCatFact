@@ -1,10 +1,12 @@
 package clarity.software.dimtrif.mycatfact
 
+import clarity.software.dimtrif.mycatfact.data.CatBreed
+import clarity.software.dimtrif.mycatfact.data.CatBreedsResponse
+import clarity.software.dimtrif.mycatfact.network.RetrofitInstance
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.just
-import io.mockk.mockk
 import io.mockk.mockkObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -26,7 +28,6 @@ class CatViewModelTest {
         CatBreed(1, "Siamese", "Siamese", "Siamese", "Siamese", "Siamese"),
         CatBreed(2, "Persian", "Persian", "Persian", "Persian", "Persian")
     )
-    private lateinit var viewModel: CatBreedsViewModel
 
     @Before
     fun setUp() {
@@ -45,7 +46,7 @@ class CatViewModelTest {
 
     @Test
     fun catBreedsViewModelTest() = runTest {
-        viewModel = CatBreedsViewModel(StandardTestDispatcher())
+        val viewModel = CatBreedsViewModel(StandardTestDispatcher())
         advanceUntilIdle()
         assertEquals(false, viewModel.isLoading.value)
         assertEquals(null, viewModel.errorMessage.value)

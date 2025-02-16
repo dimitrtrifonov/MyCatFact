@@ -1,4 +1,4 @@
-package clarity.software.dimtrif.mycatfact
+package clarity.software.dimtrif.mycatfact.network
 
 import android.app.Application
 import android.net.ConnectivityManager

@@ -2,6 +2,8 @@ package clarity.software.dimtrif.mycatfact
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import clarity.software.dimtrif.mycatfact.data.CatBreed
+import clarity.software.dimtrif.mycatfact.network.RetrofitInstance
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

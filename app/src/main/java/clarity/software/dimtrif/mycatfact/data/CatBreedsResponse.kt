@@ -1,4 +1,4 @@
-package clarity.software.dimtrif.mycatfact
+package clarity.software.dimtrif.mycatfact.data
 
 data class CatBreedsResponse(
     val data: List<CatBreed>
