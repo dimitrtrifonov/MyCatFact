@@ -1,6 +1,7 @@
 package clarity.software.dimtrif.mycatfact
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -62,6 +64,9 @@ fun CatBreedsScreen(catViewModel: CatBreedsViewModel = viewModel()) {
                 }
             }
         }
+    }
+    if (catViewModel.cachedListShown.collectAsState().value) {
+        Toast.makeText(LocalContext.current, "Cached list shown", Toast.LENGTH_SHORT).show()
     }
 }
 
